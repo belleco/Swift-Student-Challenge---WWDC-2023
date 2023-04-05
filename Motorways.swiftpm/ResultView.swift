@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ResultView.swift
 //  Motorways
 //
 //  Created by Isabelle Colares on 04/04/23.
