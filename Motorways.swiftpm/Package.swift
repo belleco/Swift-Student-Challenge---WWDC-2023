@@ -29,13 +29,17 @@ let package = Package(
             supportedInterfaceOrientations: [
                 .landscapeRight,
                 .landscapeLeft
-            ]
+            ],
+            appCategory: .education
         )
     ],
     targets: [
         .executableTarget(
             name: "AppModule",
-            path: "."
+            path: ".",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )
