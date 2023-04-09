@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CharacteristicsView.swift
 //  Motorways
 //
 //  Created by Isabelle Colares on 04/04/23.
@@ -8,12 +8,16 @@
 import Foundation
 import SwiftUI
 
+
 struct ContentView: View {
-    
+    @State private var showingInfo = false
+    @State private var overlayText = ""
     @StateObject var answer = Answers()
     
     
     var body: some View {
+        
+        
         VStack{
             ZStack{
                 Rectangle()
@@ -28,14 +32,14 @@ struct ContentView: View {
                         .padding()
                     
                     Text ("I don't want to run too fast, it has to be safe and take me places in the best possible way.")
+                        .font (Font.custom("Urbanist-VariableFont_wght", size: 22))
                         .lineLimit(2)
                         .truncationMode(.tail)
                         .foregroundColor(.white)
-                        .font(.title2)
                         .padding()
                     
                 } .padding()
-            } .frame(width: 1100, height: 150)
+            } .frame(width: 1100, height: 130)
             
             Spacer()
             
@@ -49,82 +53,29 @@ struct ContentView: View {
                 .foregroundColor(.black)
                 .font(.largeTitle)
             
-            
-            HStack (spacing: 100){
+            HStack {
+                CardMotorView(image: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow")
+                    .onTapGesture {
+                        // Ação a ser executada quando o card for clicado
+                        answer.Answers[0] = "Sooter"
+                    }
                 
                 
-                VStack {
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 250)
-                        .padding()
+                CardMotorView(image: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium")
+                    .onTapGesture {
+                        // Ação a ser executada quando o card for clicado
+                        answer.Answers[0] = "Chopper"
+                    }
                     
-                    Text("Sooter")
-                        .font(.title)
-                        .foregroundColor(.primary)
-                        .padding()
-                    Text("Slow")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                        .padding()
-                }
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .onTapGesture {
-                    // Ação a ser executada quando o card for clicado
-                    answer.Answers[0] = "Sooter"
-                }
                 
-                VStack {
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 250)
-                        .padding()
+                
+                
+                CardMotorView(image: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast")
+                    .onTapGesture {
+                        // Ação a ser executada quando o card for clicado
+                        answer.Answers[0] = "Sport"
+                    }
                     
-                    Text("Chopper")
-                        .font(.title)
-                        .foregroundColor(.primary)
-                        .padding()
-                    Text("Medium")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                        .padding()
-                }
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .onTapGesture {
-                    // Ação a ser executada quando o card for clicado
-                    answer.Answers[0] = "Chopper"
-                }
-                
-                VStack {
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 250)
-                        .padding()
-                    
-                    Text("Sport")
-                        .font(.title)
-                        .foregroundColor(.primary)
-                        .padding()
-                    Text("Fast")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                        .padding()
-                }
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .onTapGesture {
-                    // Ação a ser executada quando o card for clicado
-                    answer.Answers[0] = "Sport"
-                }
-                
             }
             
             Spacer()
@@ -145,7 +96,6 @@ struct ContentView: View {
                         .scaledToFit()
                         .foregroundColor(.black)
                         .padding()
-            
                     
                     Spacer()
                     
@@ -154,14 +104,8 @@ struct ContentView: View {
                         .foregroundColor(.green)
                         .scaledToFit()
                         .padding(20)
-
-
-                   
-                    
                     
                 } .frame(width: 500, height: 150)
-                
-                
                 
                 Button(action: {
                     // Adicione sua ação aqui
@@ -175,16 +119,97 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
             }
+            
+        }
+    }
+    
+   public struct CardMotorView: View {
+        let image: String
+        let icon: String
+        let title: String
+        let subtitle: String
+        @State private var overlayText = ""
+        @State private var showingInfo = false
+        
+        
+        
+        var body: some View {
+            VStack {
+                Image(systemName: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 200)
+                    .padding(.vertical)
+                
+                HStack{
+                    
+                    Text(title)
+                        .font(.title)
+                        .foregroundColor(.primary)
+                    
+                    Spacer()
+                    
+                    Image(systemName: icon)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+                        .onTapGesture {
+                            overlayText = "Information for Card 1"
+                            showingInfo = true
+                        }
+                    
+                    
+                }.padding()
+                
+                Text(subtitle)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .padding(.vertical)
+                
+            }
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
+            .padding()
+            .overlay(
+                Group {
+                    if showingInfo {
+                        OverlayView(text: overlayText)
+                            .onTapGesture {
+                                showingInfo = false
+                            }
+                    }
+                }
+            )
         }
     }
 }
-    
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
+    struct OverlayView: View {
+        let text: String
+        
+        var body: some View {
+            ZStack {
+                Color.black.opacity(0.5)
+                
+                VStack {
+                    Text(text)
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                }
+                .padding()
+            }
+            .ignoresSafeArea()
         }
     }
 
-        
-        
+
+
+struct ContentView_Preview : PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+    
+    
