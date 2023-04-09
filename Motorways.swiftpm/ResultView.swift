@@ -8,9 +8,3 @@
 import Foundation
 import SwiftUI
 
-
-//struct ResultView : View {
-//    
-//    
-//}
-//

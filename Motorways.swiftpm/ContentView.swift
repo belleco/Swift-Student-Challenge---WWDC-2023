@@ -10,8 +10,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State private var showingInfo = false
-    @State private var overlayText = ""
+    
     @StateObject var answer = Answers()
     
     
@@ -19,27 +18,8 @@ struct ContentView: View {
         
         
         VStack{
-            ZStack{
-                Rectangle()
-                    .fill(Color.black) // Cor sólida
-                    .cornerRadius(10)
-                
-                HStack{
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .foregroundColor(.white)
-                        .padding()
-                    
-                    Text ("I don't want to run too fast, it has to be safe and take me places in the best possible way.")
-                        .font (Font.custom("Urbanist-VariableFont_wght", size: 22))
-                        .lineLimit(2)
-                        .truncationMode(.tail)
-                        .foregroundColor(.white)
-                        .padding()
-                    
-                } .padding()
-            } .frame(width: 1100, height: 130)
+            
+            ClientConversation(imageClient: "person.circle", Conversation: "I don't want to run too fast, it has to be safe and take me places in the best possible way.")
             
             Spacer()
             
@@ -54,29 +34,28 @@ struct ContentView: View {
                 .font(.largeTitle)
             
             HStack {
-                CardMotorView(image: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow")
+                CardMotorView(image: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "Information for Card 1")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Sooter"
                     }
                 
                 
-                CardMotorView(image: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium")
+                CardMotorView(image: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium",  information: "Information for Card 2")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Chopper"
                     }
-                    
                 
                 
                 
-                CardMotorView(image: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast")
+                
+                CardMotorView(image: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast", information: "Information for Card 3")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Sport"
                     }
-                    
-            }
+            } .padding(.horizontal,80)
             
             Spacer()
             
@@ -112,6 +91,7 @@ struct ContentView: View {
                     print(answer.Answers[0])
                 }) {
                     Text("Confirm")
+                        .bold()
                         .padding(.horizontal, 90)
                         .padding(.vertical, 25)
                         .foregroundColor(.white)
@@ -123,14 +103,14 @@ struct ContentView: View {
         }
     }
     
-   public struct CardMotorView: View {
+    public struct CardMotorView: View {
         let image: String
         let icon: String
         let title: String
         let subtitle: String
-        @State private var overlayText = ""
-        @State private var showingInfo = false
-        
+        let information: String
+        @State  var overlayText = ""
+        @State  var showingInfo = false
         
         
         var body: some View {
@@ -154,7 +134,7 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
                         .onTapGesture {
-                            overlayText = "Information for Card 1"
+                            overlayText = information
                             showingInfo = true
                         }
                     
@@ -174,7 +154,7 @@ struct ContentView: View {
             .overlay(
                 Group {
                     if showingInfo {
-                        OverlayView(text: overlayText)
+                        OverlayView(cardInformation: overlayText)
                             .onTapGesture {
                                 showingInfo = false
                             }
@@ -183,16 +163,48 @@ struct ContentView: View {
             )
         }
     }
+    
+    public struct ClientConversation: View {
+        let imageClient: String
+        let Conversation: String
+      
+        var body: some View {
+            ZStack{
+                Rectangle()
+                    .fill(Color.black) // Cor sólida
+                    .cornerRadius(10)
+                
+                HStack{
+                    Image(systemName: imageClient)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .foregroundColor(.white)
+                        .padding()
+                    
+                    Text (Conversation)
+                        .font (Font.custom("Urbanist-VariableFont_wght", size: 22))
+                        .lineLimit(2)
+                        .truncationMode(.tail)
+                        .foregroundColor(.white)
+                        .padding()
+                    
+                } .padding()
+            } .frame(width: 1100, height: 130)
+        }
+    }
 }
+    
     struct OverlayView: View {
-        let text: String
+        let cardInformation: String
         
         var body: some View {
             ZStack {
-                Color.black.opacity(0.5)
+                Color.black.opacity(0.95)
+                    .cornerRadius(10)
+
                 
                 VStack {
-                    Text(text)
+                    Text(cardInformation)
                         .foregroundColor(.white)
                     
                     Spacer()
