@@ -7,3 +7,16 @@
 
 import Foundation
 import SwiftUI
+
+
+//   
+//
+//
+//struct CharacteristicsView_Preview : PreviewProvider {
+//    static var previews: some View {
+//        CharacteristicsView()
+//    }
+//}
+//
+//    
+//    

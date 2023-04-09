@@ -13,44 +13,30 @@ struct ContentView: View {
     
     @StateObject var answer = Answers()
     
-    
     var body: some View {
-        
         
         VStack{
             
-            ClientConversation(imageClient: "person.circle", Conversation: "I don't want to run too fast, it has to be safe and take me places in the best possible way.")
+            ClientConversation(imageClient: "person.circle", conversation: "I don't want to run too fast, it has to be safe and take me places in the best possible way.")
             
             Spacer()
             
-            Text ("Which of these has the ")
-                .foregroundColor(.black)
-                .font(.largeTitle)
-            + Text("speed").bold()
-                .foregroundColor(.black)
-                .font(.largeTitle)
-            + Text(" the customer wants?")
-                .foregroundColor(.black)
-                .font(.largeTitle)
+            CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants")
             
             HStack {
-                CardMotorView(image: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "Information for Card 1")
+                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "Information for Card 1")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Sooter"
                     }
                 
-                
-                CardMotorView(image: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium",  information: "Information for Card 2")
+                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium",  information: "Information for Card 2")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Chopper"
                     }
                 
-                
-                
-                
-                CardMotorView(image: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast", information: "Information for Card 3")
+                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast", information: "Information for Card 3")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Sport"
@@ -62,27 +48,17 @@ struct ContentView: View {
             HStack (spacing: 300){
                 
                 HStack {
-                    Image(systemName: "person.crop.artframe")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(.black)
-                        .padding()
+                    
+                    MiniCard()
                     
                     Spacer()
                     
-                    Image(systemName: "person.crop.artframe")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(.black)
-                        .padding()
+                    MiniCard()
                     
                     Spacer()
                     
-                    Rectangle()
-                        .stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
-                        .foregroundColor(.green)
-                        .scaledToFit()
-                        .padding(20)
+                    MiniCard()
+                    
                     
                 } .frame(width: 500, height: 150)
                 
@@ -104,7 +80,7 @@ struct ContentView: View {
     }
     
     public struct CardMotorView: View {
-        let image: String
+        let imageMotor: String
         let icon: String
         let title: String
         let subtitle: String
@@ -115,7 +91,7 @@ struct ContentView: View {
         
         var body: some View {
             VStack {
-                Image(systemName: image)
+                Image(systemName: imageMotor)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 300, height: 200)
@@ -126,6 +102,7 @@ struct ContentView: View {
                     Text(title)
                         .font(.title)
                         .foregroundColor(.primary)
+                        .bold()
                     
                     Spacer()
                     
@@ -138,13 +115,13 @@ struct ContentView: View {
                             showingInfo = true
                         }
                     
-                    
                 }.padding()
                 
                 Text(subtitle)
-                    .font(.body)
+                    .font(.title2)
+                    .bold()
                     .foregroundColor(.secondary)
-                    .padding(.vertical)
+                    .padding(.vertical,15)
                 
             }
             .background(Color.white)
@@ -166,8 +143,8 @@ struct ContentView: View {
     
     public struct ClientConversation: View {
         let imageClient: String
-        let Conversation: String
-      
+        let conversation: String
+        
         var body: some View {
             ZStack{
                 Rectangle()
@@ -181,7 +158,7 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .padding()
                     
-                    Text (Conversation)
+                    Text (conversation)
                         .font (Font.custom("Urbanist-VariableFont_wght", size: 22))
                         .lineLimit(2)
                         .truncationMode(.tail)
@@ -192,28 +169,48 @@ struct ContentView: View {
             } .frame(width: 1100, height: 130)
         }
     }
-}
     
-    struct OverlayView: View {
-        let cardInformation: String
+    public struct CardQuestion: View {
+        let firstWords: String
+        let boldWord: String
+        let lastwords: String
+        
         
         var body: some View {
-            ZStack {
-                Color.black.opacity(0.95)
-                    .cornerRadius(10)
-
-                
-                VStack {
-                    Text(cardInformation)
-                        .foregroundColor(.white)
-                    
-                    Spacer()
-                }
-                .padding()
-            }
-            .ignoresSafeArea()
+            
+            Text (firstWords)
+                .foregroundColor(.black)
+                .font(.largeTitle)
+            + Text(boldWord).bold()
+                .foregroundColor(.black)
+                .font(.largeTitle)
+            + Text(lastwords)
+                .foregroundColor(.black)
+                .font(.largeTitle)
+            
         }
     }
+    
+    public struct MiniCard: View {
+        @State var imageMotor = "person.crop.artframe" // nome da imagem padrão
+        var body: some View {
+            VStack {
+                Image(systemName: imageMotor) // exibe a imagem com o nome atual
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+                    .onTapGesture { // ação a ser realizada quando a imagem for clicada
+                        if imageMotor == "person.crop.artframe" {
+                            imageMotor = "iphone.smartbatterycase.gen2" // muda o nome da imagem para a segunda imagem
+                        } else {
+                            imageMotor = "person.crop.artframe" // muda o nome da imagem para a primeira imagem
+                        }
+                    }
+            }
+        }
+    }
+}
+   
 
 
 
