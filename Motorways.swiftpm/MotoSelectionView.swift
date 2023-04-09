@@ -24,7 +24,10 @@ struct OverlayView: View {
             
             VStack {
                 Text(cardInformation)
+                    .font(.custom("Urbanist-VariableFont_wght", size: 24))
                     .foregroundColor(.white)
+                    .padding(.vertical,80)
+                    .padding(.horizontal,20)
                 
                 Spacer()
             }

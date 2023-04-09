@@ -24,7 +24,7 @@ struct ContentView: View {
             CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants")
             
             HStack {
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "Information for Card 1")
+                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Sooter"
@@ -64,7 +64,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Adicione sua ação aqui
-                    print(answer.Answers[0])
+                    print(answer.Answers[0...2])
                 }) {
                     Text("Confirm")
                         .bold()
