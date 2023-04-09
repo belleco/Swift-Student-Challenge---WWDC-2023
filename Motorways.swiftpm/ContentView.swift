@@ -70,13 +70,14 @@ struct ContentView: View {
                         .bold()
                         .padding(.horizontal, 90)
                         .padding(.vertical, 25)
-                        .foregroundColor(.white)
-                        .background(Color.blue)
+                        .foregroundColor(Color.white)
+                        .background(Color("retroTerc"))
                         .cornerRadius(10)
+    
                 }
             }
             
-        }
+        }.background(Color("retroWhite"))
     }
     
     public struct CardMotorView: View {
@@ -101,7 +102,7 @@ struct ContentView: View {
                     
                     Text(title)
                         .font(.title)
-                        .foregroundColor(.primary)
+                        .foregroundColor(Color("retroTerc"))
                         .bold()
                     
                     Spacer()
@@ -148,7 +149,7 @@ struct ContentView: View {
         var body: some View {
             ZStack{
                 Rectangle()
-                    .fill(Color.black) // Cor sólida
+                    .fill(Color("retroTerc").opacity(0.75)) // Cor sólida
                     .cornerRadius(10)
                 
                 HStack{
@@ -160,6 +161,7 @@ struct ContentView: View {
                     
                     Text (conversation)
                         .font (Font.custom("Urbanist-VariableFont_wght", size: 22))
+                        .multilineTextAlignment(.leading)
                         .lineLimit(2)
                         .truncationMode(.tail)
                         .foregroundColor(.white)
