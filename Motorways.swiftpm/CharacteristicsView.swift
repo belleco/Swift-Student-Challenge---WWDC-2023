@@ -12,7 +12,8 @@ import SwiftUI
 struct CharacteristicsView: View {
     @State private var showPopoverMotor = false
     @State private var showPopoverBattery = false
-
+    @State private var isPresentingSheet = false
+    
     
     var body: some View {
         
@@ -24,35 +25,35 @@ struct CharacteristicsView: View {
             
             HStack{
                 
-                    
-                    Button(action: {
-                        // Adicione sua ação aqui
-                        showPopoverMotor.toggle()
-                    }) {
-                        Image("motorcycle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 300)
-                    }
+                
+                Button(action: {
+                    // Adicione sua ação aqui
+                    showPopoverMotor.toggle()
+                }) {
+                    Image("motorcycle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 300)
+                }
                 
                 Spacer()
-
-                    
-                    Button(action: {
-                        // Adicione sua ação aqui
-                        showPopoverBattery.toggle()
-                    }) {
-                        Image("motorcycle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 300)
-                    }
-            
+                
+                
+                Button(action: {
+                    // Adicione sua ação aqui
+                    showPopoverBattery.toggle()
+                }) {
+                    Image("motorcycle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 300)
+                }
+                
             }  .popover(isPresented: $showPopoverMotor, attachmentAnchor: .rect(.rect(.init(x: 50, y: 50, width: 0, height: 0))), arrowEdge: .bottom, content: {
                 EletricMotorInfoView()
                     .frame(width: 400, height: 400) // Definindo o tamanho da View
             })
-
+            
             .popover(isPresented: $showPopoverBattery, content: {
                 BatteryInfoView()
                     .frame(width: 400, height: 400) // Definindo o tamanho da View
@@ -62,25 +63,27 @@ struct CharacteristicsView: View {
             
             Spacer()
             
-            Button(action: {
-                // Adicione sua ação aqui
-                print("Conhecer cliente")
-            }) {
-                Text("Conhecer cliente")
-                    .bold()
-                    .padding(.horizontal, 90)
-                    .padding(.vertical, 25)
-                    .foregroundColor(Color.white)
-                    .background(Color("retroTerc"))
-                    .cornerRadius(10)
-            }
-        }
-        .padding(.vertical,100)
-        .padding(.horizontal)
-        .background(Color("retroWhite")).ignoresSafeArea()
-        
+            
+            Button(action: { isPresentingSheet = true }){
+                NavigationLink (destination: ContentView(),isActive: $isPresentingSheet) {
+                    Text("Meet next client")
+                        .bold()
+                        .padding(.horizontal, 90)
+                        .padding(.vertical, 25)
+                        .foregroundColor(Color.white)
+                        .background(Color("retroTerc"))
+                        .cornerRadius(10)
+                }
+            }.shadow(radius: 5)
+                .sheet(isPresented: $isPresentingSheet) {
+                    ClientView()}
+            
+        }.padding(.vertical,100)
+            .padding(.horizontal)
+            .background(Color("retroWhite")).ignoresSafeArea()
     }
 }
+
 
 struct EletricMotorInfoView: View {
     var body: some View {

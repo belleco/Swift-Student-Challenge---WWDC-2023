@@ -43,7 +43,7 @@ struct MenuView: View {
                     Spacer()
                     
                     Button(action: {}){
-                        NavigationLink (destination: ContentView()) {
+                        NavigationLink (destination: CharacteristicsView()) {
                             Image(systemName: "play.fill")
                                 .resizable()
                                 .frame(width: 100.0, height: 100.0)
@@ -53,7 +53,7 @@ struct MenuView: View {
                                 .background(Color("retroTerc"))
                                 .cornerRadius(800)
                         }
-                    }.shadow(radius: 12)
+                    }.shadow(radius: 5)
                     
                 }.padding(.horizontal,50)
                     .padding(.bottom,150)

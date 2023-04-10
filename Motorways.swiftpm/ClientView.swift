@@ -10,26 +10,8 @@ import SwiftUI
 
 
 struct ClientView: View {
+    @Environment(\.presentationMode) var presentationMode
     
-    @State var isSheetPresented = false
-    
-    var body: some View {
-        
-        
-        VStack{
-            
-            Button("Apresentar Sheet") {
-                isSheetPresented = true
-            }
-            .sheet(isPresented:$isSheetPresented, content: {
-                ClientInfoView()
-            })
-        }
-    }
-}
-
-
-struct ClientInfoView: View {
     var body: some View {
         VStack {
             Image(systemName: "person.fill")
@@ -49,17 +31,16 @@ struct ClientInfoView: View {
                 .padding(.bottom,100)
             
             Button(action: {
-                // Adicione sua ação aqui
-                print("Conhecer cliente")
+                presentationMode.wrappedValue.dismiss()
             }) {
-                Text("Conhecer cliente")
+                Text("Close")
                     .bold()
                     .padding(.horizontal, 90)
                     .padding(.vertical, 25)
                     .foregroundColor(Color.white)
                     .background(Color("retroTerc"))
                     .cornerRadius(10)
-            }
+            }.shadow(radius: 5)
             
         }.padding(40)
     }
