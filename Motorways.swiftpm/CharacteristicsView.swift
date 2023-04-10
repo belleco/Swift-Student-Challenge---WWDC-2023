@@ -17,7 +17,7 @@ struct CharacteristicsView: View {
     var body: some View {
         
         VStack {
-            Text("Mas primeiro... Vou te apresentar o que são motos elétricas")
+            Text("But first... I'll introduce electric motorcycles to you")
                 .font(CustomFontStyle.largeTitle.font)
             
             Spacer()
@@ -85,10 +85,10 @@ struct CharacteristicsView: View {
 struct EletricMotorInfoView: View {
     var body: some View {
         VStack {
-            Text("Motos elétricas")
+            Text("Eletric Motors")
                 .font(CustomFontStyle.title1.font)
             Divider()
-            Text("Elas são movidas por um motor elétrico alimentado por baterias recarregáveis em vez de combustível. Elas são uma alternativa mais limpa e silenciosa às motocicletas movidas a gasolina, produzindo menos poluição e sendo mais eficientes em termos de consumo de energia.As motos elétricas têm a mesma aparência e desempenho das motocicletas convencionais, mas com uma fonte de energia diferente, permitindo que as pessoas se desloquem de forma mais sustentável e econômica.")
+            Text("They are powered by an electric motor powered by rechargeable batteries instead of fuel. They are a cleaner and quieter alternative than gasoline powered motorcycles, producing less pollution and are more energy efficient. \n\nElectric motorcycles look and perform like conventional motorcycles, but with a different power source, enabling people to move around in a more sustainable and cost-effective way.")
                 .font(CustomFontStyle.headline.font)
                 .padding(20)
         }
@@ -98,10 +98,10 @@ struct EletricMotorInfoView: View {
 struct BatteryInfoView: View {
     var body: some View {
         VStack {
-            Text("Bateria de Lítio")
+            Text("Lithium battery")
                 .font(CustomFontStyle.title1.font)
             Divider()
-            Text("As nossas motos elétricas usam baterias de íon de lítio, que são mais leves e duráveis do que as baterias de chumbo-ácido tradicionais. Além disso, as baterias possuem um sistema de gerenciamento de energia inteligente que garante uma carga mais eficiente e segura.As baterias podem ser facilmente removidas para recarga e substituição")
+            Text("Our electric motorcycles use lithium-ion batteries, which are lighter and more durable than traditional lead-acid batteries.\n\nIn addition, the batteries have an intelligent energy management system that guarantees a more efficient and safer charge. \n\nBatteries can be easily removed for recharge and replacement.")
                 .font(CustomFontStyle.headline.font)
                 .padding(20)
         }

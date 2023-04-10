@@ -44,7 +44,7 @@ struct ResultView: View {
                 VStack{
                     
                     Text(motorName)
-                        .font(.custom("Urbanist-VariableFont_wght", size: 50))
+                        .font(CustomFontStyle.largeTitle.font)
                         .fontWeight(.heavy)
                         .foregroundColor(.black)
                         .multilineTextAlignment(.leading)
@@ -52,14 +52,14 @@ struct ResultView: View {
                         .padding(.vertical,30)
                     
                     Text(descriptionMotor1)
-                        .font(.custom("Urbanist-VariableFont_wght", size: 24))
+                        .font(CustomFontStyle.body.font)
                         .fontWeight(.regular)
                         .foregroundColor(.primary)
                         .multilineTextAlignment(.leading)
                         .padding(.vertical,30)
                     
                     Text(descriptionMotor2)
-                        .font(.custom("Urbanist-VariableFont_wght", size: 24))
+                        .font(CustomFontStyle.body.font)
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
                         .multilineTextAlignment(.leading)
