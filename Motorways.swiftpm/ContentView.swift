@@ -12,9 +12,10 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var answer = Answers()
+    @State var showClient = false
+
     
-    var body: some View {
-        
+    var body: some View {            
         VStack{
             
             ClientConversation(imageClient: "person.circle", conversation: "I don't want to run too fast, it has to be safe and take me places in the best possible way.")
@@ -73,11 +74,18 @@ struct ContentView: View {
                         .foregroundColor(Color.white)
                         .background(Color("retroTerc"))
                         .cornerRadius(10)
-    
+                    
                 }
             }
             
         }.background(Color("retroWhite"))
+        .sheet(isPresented: $showClient) {
+            ClientView()
+        }
+        .onAppear {
+            showClient = true
+              
+        }
     }
     
     public struct CardMotorView: View {

@@ -64,8 +64,8 @@ struct CharacteristicsView: View {
             Spacer()
             
             
-            Button(action: { isPresentingSheet = true }){
-                NavigationLink (destination: ContentView(),isActive: $isPresentingSheet) {
+            Button(action: {}){
+                NavigationLink (destination: ContentView()){
                     Text("Meet next client")
                         .bold()
                         .padding(.horizontal, 90)
@@ -75,8 +75,6 @@ struct CharacteristicsView: View {
                         .cornerRadius(10)
                 }
             }.shadow(radius: 5)
-                .sheet(isPresented: $isPresentingSheet) {
-                    ClientView()}
             
         }.padding(.vertical,100)
             .padding(.horizontal)
