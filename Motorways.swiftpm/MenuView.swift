@@ -12,67 +12,61 @@ import SwiftUI
 struct MenuView: View {
     
     var body: some View {
-        
-        VStack{
-            Image("Logo")
-                .resizable()
-                .aspectRatio( contentMode: .fit)
-                .frame(maxWidth: 700)
-                .padding(.top, 100)
+        NavigationView{
             
-            Spacer()
-                        
-            HStack{
-                VStack{
-                    
-                    Text("Every electric bike has its profile, you need to help the next customer get the bike that best fits her profile")
-                        .font(.custom("Urbanist-VariableFont_wght", size: 24))
-                        .foregroundColor(Color("retroBlack"))
-                        .multilineTextAlignment(.leading)
-                        .padding(.vertical,50)
-                        .padding(.horizontal,30)
-
-                    
-                }.background(Color("retroPrimary")                    .opacity(0.6))
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
-                    .padding(50)
-
-
+            VStack{
+                Image("Logo")
+                    .resizable()
+                    .aspectRatio( contentMode: .fit)
+                    .frame(maxWidth: 700)
+                    .padding(.top, 100)
+                
                 Spacer()
                 
-                Button(action: {
-                    // Adicione sua ação aqui
-                    print("Play")
-                }) {
-                    Image(systemName: "play.fill")
-                        .resizable()
-                        .frame(width: 100.0, height: 100.0)
-                        .scaledToFit()
-                        .padding(50.0)
-                        .foregroundColor(Color("retroWhite"))
-                        .background(Color("retroTerc"))
-                        .cornerRadius(800)
+                HStack{
+                    VStack{
+                        
+                        Text("Every electric bike has its profile, you need to help the next customer get the bike that best fits her profile")
+                            .font(.custom("Urbanist-VariableFont_wght", size: 24))
+                            .foregroundColor(Color("retroBlack"))
+                            .multilineTextAlignment(.leading)
+                            .padding(.vertical,50)
+                            .padding(.horizontal,30)
+                        
+                        
+                    }.background(Color("retroPrimary").opacity(0.6))
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                        .padding(50)
                     
-                }.padding(100)
-                    .shadow(radius: 12)
-
+                    
+                    Spacer()
+                    
+                    Button(action: {}){
+                        NavigationLink (destination: ContentView()) {
+                            Image(systemName: "play.fill")
+                                .resizable()
+                                .frame(width: 100.0, height: 100.0)
+                                .scaledToFit()
+                                .padding(50.0)
+                                .foregroundColor(Color("retroWhite"))
+                                .background(Color("retroTerc"))
+                                .cornerRadius(800)
+                        }
+                    }.shadow(radius: 12)
+                    
+                }.padding(.horizontal,50)
+                    .padding(.bottom,150)
                 
-                
-                
-            }.padding(.horizontal,50)
-                .padding(.bottom,150)
+            }.background(Color("retroWhite"))
             
-        }   .background(Color("retroWhite"))
+        }.navigationViewStyle(.stack)
+            .navigationBarHidden(true)
     }
 }
-
 
 struct MenuView_Preview : PreviewProvider {
     static var previews: some View {
         MenuView()
     }
 }
-
-    
-    

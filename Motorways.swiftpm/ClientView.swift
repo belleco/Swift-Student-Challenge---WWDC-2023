@@ -66,7 +66,7 @@ struct ClientInfoView: View {
 }
 
 
-struct ClientView_Preview : PreviewProvider {
+struct SheetView_Preview : PreviewProvider {
     static var previews: some View {
         ClientView()
     }
