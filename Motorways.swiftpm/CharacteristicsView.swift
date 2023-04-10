@@ -10,46 +10,75 @@ import SwiftUI
 
 
 struct CharacteristicsView: View {
-    @State private var showPopover1 = false
-    @State private var showPopover2 = false
+    @State private var showPopoverMotor = false
+    @State private var showPopoverBattery = false
 
     
     var body: some View {
-        HStack{
-            VStack {
-                
-                Button(action: {
-                    // Adicione sua ação aqui
-                    showPopover1.toggle()
-                }) {
-                    Image("motorcycle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 300)
-                }
-            }
-            VStack {
-                
-                Button(action: {
-                    // Adicione sua ação aqui
-                    showPopover2.toggle()
-                }) {
-                    Image("motorcycle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 300)
-                }
-            }
-            
-        }  .popover(isPresented: $showPopover1, content: {
-            EletricMotorInfoView()
-                .frame(width: 400, height: 400) // Definindo o tamanho da View
-        })
         
-        .popover(isPresented: $showPopover2, content: {
-            BatteryInfoView()
-                .frame(width: 400, height: 400) // Definindo o tamanho da View
-        })
+        VStack {
+            Text("Mas primeiro... Vou te apresentar o que são motos elétricas")
+                .font(CustomFontStyle.largeTitle.font)
+            
+            Spacer()
+            
+            HStack{
+                
+                    
+                    Button(action: {
+                        // Adicione sua ação aqui
+                        showPopoverMotor.toggle()
+                    }) {
+                        Image("motorcycle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 300)
+                    }
+                
+                Spacer()
+
+                    
+                    Button(action: {
+                        // Adicione sua ação aqui
+                        showPopoverBattery.toggle()
+                    }) {
+                        Image("motorcycle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 300)
+                    }
+            
+            }  .popover(isPresented: $showPopoverMotor, attachmentAnchor: .rect(.rect(.init(x: 50, y: 50, width: 0, height: 0))), arrowEdge: .bottom, content: {
+                EletricMotorInfoView()
+                    .frame(width: 400, height: 400) // Definindo o tamanho da View
+            })
+
+            .popover(isPresented: $showPopoverBattery, content: {
+                BatteryInfoView()
+                    .frame(width: 400, height: 400) // Definindo o tamanho da View
+            })
+            
+            .padding(.horizontal,150)
+            
+            Spacer()
+            
+            Button(action: {
+                // Adicione sua ação aqui
+                print("Conhecer cliente")
+            }) {
+                Text("Conhecer cliente")
+                    .bold()
+                    .padding(.horizontal, 90)
+                    .padding(.vertical, 25)
+                    .foregroundColor(Color.white)
+                    .background(Color("retroTerc"))
+                    .cornerRadius(10)
+            }
+        }
+        .padding(.vertical,100)
+        .padding(.horizontal)
+        .background(Color("retroWhite")).ignoresSafeArea()
+        
     }
 }
 
