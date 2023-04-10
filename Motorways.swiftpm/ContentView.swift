@@ -21,7 +21,7 @@ struct ContentView: View {
             
             Spacer()
             
-            CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants")
+            CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants?")
             
             HStack {
                 CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
@@ -101,7 +101,7 @@ struct ContentView: View {
                 HStack{
                     
                     Text(title)
-                        .font(.title)
+                        .font(CustomFontStyle.title3.font)
                         .foregroundColor(Color("retroTerc"))
                         .bold()
                     
@@ -119,7 +119,7 @@ struct ContentView: View {
                 }.padding()
                 
                 Text(subtitle)
-                    .font(.title2)
+                    .font(CustomFontStyle.headline.font)
                     .bold()
                     .foregroundColor(.secondary)
                     .padding(.vertical,15)
@@ -160,7 +160,7 @@ struct ContentView: View {
                         .padding()
                     
                     Text (conversation)
-                        .font (Font.custom("Urbanist-VariableFont_wght", size: 22))
+                        .font(CustomFontStyle.headline.font)
                         .multilineTextAlignment(.leading)
                         .lineLimit(2)
                         .truncationMode(.tail)
@@ -182,13 +182,14 @@ struct ContentView: View {
             
             Text (firstWords)
                 .foregroundColor(.black)
-                .font(.largeTitle)
+                .font(CustomFontStyle.largeTitle.font)
             + Text(boldWord).bold()
                 .foregroundColor(.black)
-                .font(.largeTitle)
+                .font(CustomFontStyle.largeTitle.font)
             + Text(lastwords)
                 .foregroundColor(.black)
-                .font(.largeTitle)
+                .font(CustomFontStyle.largeTitle.font)
+
             
         }
     }
