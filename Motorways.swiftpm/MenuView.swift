@@ -16,14 +16,6 @@ struct MenuView: View {
             
             VStack{
                 
-                Button(action: {
-                    // Adicione sua ação aqui
-                    print(":")
-                }) {
-                    Text("Confirm")
-                        .buttonStyle(CustomButtonStyle())
-                }
-                
                 Image("Logo")
                     .resizable()
                     .aspectRatio( contentMode: .fit)

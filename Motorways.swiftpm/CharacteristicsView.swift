@@ -65,11 +65,12 @@ struct CharacteristicsView: View {
             
             
             Button(action: {}){
-                NavigationLink (destination: ContentView()){
+                NavigationLink (destination: Question1()){
                     Text("Meet next client")
-                        .buttonStyle(CustomButtonStyle())
+                
                 }
-            }.shadow(radius: 5)
+            }.buttonStyle(CustomButtonStyle())
+            .shadow(radius: 5)
             
         }.padding(.vertical,100)
             .padding(.horizontal)

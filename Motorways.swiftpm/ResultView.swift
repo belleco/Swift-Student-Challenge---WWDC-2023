@@ -71,8 +71,8 @@ struct ResultView: View {
                         print("apertou o botão")
                     }) {
                         Text(buttonstatement)
-                            .buttonStyle(CustomButtonStyle())
-                    }
+                    }.buttonStyle(CustomButtonStyle())
+                        .shadow(radius: 5)
                     
                 }
                 

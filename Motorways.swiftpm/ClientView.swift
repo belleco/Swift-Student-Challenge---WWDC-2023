@@ -34,8 +34,9 @@ struct ClientView: View {
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Close")
-                    .buttonStyle(CustomButtonStyle())
-            }.shadow(radius: 5)
+                    
+            }.buttonStyle(CustomButtonStyle())
+            .shadow(radius: 5)
             
         }.padding(40)
     }

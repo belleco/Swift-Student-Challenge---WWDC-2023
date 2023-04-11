@@ -8,79 +8,6 @@
 import Foundation
 import SwiftUI
 
-
-struct ContentView: View {
-    
-    @StateObject var answer = Answers()
-    @State var showClient = false
-
-    
-    var body: some View {            
-        VStack{
-            
-            ClientConversation(imageClient: "person.circle", conversation: "I don't want to run too fast, it has to be safe and take me places in the best possible way.")
-            
-            Spacer()
-            
-            CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants?")
-            
-            HStack {
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
-                    .onTapGesture {
-                        // Ação a ser executada quando o card for clicado
-                        answer.Answers[0] = "Sooter"
-                    }
-                
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium",  information: "Information for Card 2")
-                    .onTapGesture {
-                        // Ação a ser executada quando o card for clicado
-                        answer.Answers[0] = "Chopper"
-                    }
-                
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast", information: "Information for Card 3")
-                    .onTapGesture {
-                        // Ação a ser executada quando o card for clicado
-                        answer.Answers[0] = "Sport"
-                    }
-            } .padding(.horizontal,80)
-            
-            Spacer()
-            
-            HStack (spacing: 300){
-                
-                HStack {
-                    
-                    MiniCard()
-                    
-                    Spacer()
-                    
-                    MiniCard()
-                    
-                    Spacer()
-                    
-                    MiniCard()
-                    
-                    
-                } .frame(width: 500, height: 150)
-                
-                Button(action: {
-                    // Adicione sua ação aqui
-                    print(answer.Answers[0...2])
-                }) {
-                    Text("Confirm")
-                        .buttonStyle(CustomButtonStyle())
-                }
-            }
-            
-        }.background(Color("retroWhite"))
-        .sheet(isPresented: $showClient) {
-            ClientView()
-        }
-        .onAppear {
-            showClient = true
-              
-        }
-    }
     
     public struct CardMotorView: View {
         let imageMotor: String
@@ -92,7 +19,7 @@ struct ContentView: View {
         @State  var showingInfo = false
         
         
-        var body: some View {
+        public var body: some View {
             VStack {
                 Image(systemName: imageMotor)
                     .resizable()
@@ -148,7 +75,7 @@ struct ContentView: View {
         let imageClient: String
         let conversation: String
         
-        var body: some View {
+        public var body: some View {
             ZStack{
                 Rectangle()
                     .fill(Color("retroTerc").opacity(0.75)) // Cor sólida
@@ -180,7 +107,7 @@ struct ContentView: View {
         let lastwords: String
         
         
-        var body: some View {
+        public var body: some View {
             
             Text (firstWords)
                 .foregroundColor(.black)
@@ -198,7 +125,7 @@ struct ContentView: View {
     
     public struct MiniCard: View {
         @State var imageMotor = "person.crop.artframe" // nome da imagem padrão
-        var body: some View {
+        public var body: some View {
             VStack {
                 Image(systemName: imageMotor) // exibe a imagem com o nome atual
                     .resizable()
@@ -214,14 +141,14 @@ struct ContentView: View {
             }
         }
     }
-}
+
    
 
 
 
 struct ContentView_Preview : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
     }
 }
 
