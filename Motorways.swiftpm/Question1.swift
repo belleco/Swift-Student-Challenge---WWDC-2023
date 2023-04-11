@@ -69,15 +69,15 @@ struct Question1: View {
                     
                 }
                 
-            }.background(Color("retroWhite"))
-            
-                .sheet(isPresented: $showClient) {
-                    ClientView()
-                }
-                .onAppear {
-                    showClient = true
-                }
-        }
+            }
+        }.background(Color("retroWhite"))
+        
+            .sheet(isPresented: $showClient) {
+                ClientView()
+            }
+            .onAppear {
+                showClient = true
+            }
     }
 }
 

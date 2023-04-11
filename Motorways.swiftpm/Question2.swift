@@ -69,6 +69,14 @@ struct Question2: View {
 }
 
 
+struct Question2_Preview : PreviewProvider {
+    static var previews: some View {
+        Question2()
+    }
+}
+
+    
+    
 
     
     

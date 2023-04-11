@@ -59,6 +59,7 @@ import SwiftUI
             .shadow(radius: 5)
             .padding()
             .overlay(
+                
                 Group {
                     if showingInfo {
                         OverlayView(cardInformation: overlayText)
