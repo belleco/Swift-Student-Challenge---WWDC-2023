@@ -24,23 +24,23 @@ struct Question1: View {
             CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants?")
             
             HStack {
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: showQuestionView[viewNumber][0].title, subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+                CardMotor(imageMotor: "photo",icon: "info.circle", title: showQuestionView[viewNumber][0].title, subtitle: showQuestionView[viewNumber][0].subtitle,  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Scooter"
                     }
                 
-//                CardMotorView(imageMotor: "photo",icon: "info.circle", title: naps[viewNumber][1].title, subtitle: "Medium",  information: "Information for Card 2")
-//                    .onTapGesture {
-//                        // Ação a ser executada quando o card for clicado
-//                        answer.Answers[0] = "Chopper"
-//                    }
+                CardMotor(imageMotor: "photo",icon: "info.circle", title: showQuestionView[viewNumber][1].title, subtitle: showQuestionView[viewNumber][1].subtitle,  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+                    .onTapGesture {
+                        // Ação a ser executada quando o card for clicado
+                        answer.Answers[0] = "Chopper"
+                    }
                 
-//                CardMotorView(imageMotor: "photo",icon: "info.circle", title: naps[viewNumber][2].title, subtitle: "Fast", information: "Information for Card 3")
-//                    .onTapGesture {
-//                        // Ação a ser executada quando o card for clicado
-//                        answer.Answers[0] = "Sport"
-//                    }
+                CardMotor(imageMotor: "photo",icon: "info.circle", title: showQuestionView[viewNumber][2].title, subtitle: showQuestionView[viewNumber][2].subtitle,  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+                    .onTapGesture {
+                        // Ação a ser executada quando o card for clicado
+                        answer.Answers[0] = "Sport"
+                    }
             } .padding(.horizontal,80)
             
             Spacer()
@@ -65,13 +65,13 @@ struct Question1: View {
                 ZStack{
                     if viewNumber > 1 {
                         NavigationLink(destination: ResultView(), label: {
-                            Text("PROXIMO")
+                            Text("See the motorcycle")
                         })
                     }else{
                         Button(action: {
                             self.viewNumber += 1
                         }){
-                          Text("PROXIMO")
+                          Text("Confirm selection")
                         }
                     }
                 }

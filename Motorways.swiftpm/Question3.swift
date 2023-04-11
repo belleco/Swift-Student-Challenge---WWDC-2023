@@ -22,19 +22,19 @@ struct Question3: View {
             CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants?")
             
             HStack {
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+                CardMotor(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[2] = "Scooter"
                     }
                 
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium",  information: "Information for Card 2")
+                CardMotor(imageMotor: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium",  information: "Information for Card 2")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[2] = "Chopper"
                     }
                 
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast", information: "Information for Card 3")
+                CardMotor(imageMotor: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast", information: "Information for Card 3")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[2] = "Sport"

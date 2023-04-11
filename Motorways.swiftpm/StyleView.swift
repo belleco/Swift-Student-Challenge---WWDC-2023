@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+// font style
+
+
 enum CustomFontStyle {
     case largeTitle
     case title1
@@ -72,6 +75,7 @@ func getFontBold (size: CGFloat) -> Font {
     return font
 }
 
+// color pallete
 extension Color {
     
     static let Primary = Color("retroPrimary")
@@ -82,7 +86,7 @@ extension Color {
     
 }
 
-
+// custom button style
 struct CustomButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         return configuration.label

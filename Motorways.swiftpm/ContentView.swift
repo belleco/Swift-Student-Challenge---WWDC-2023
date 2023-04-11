@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
     
-    public struct CardMotorView: View {
+    public struct CardMotor: View {
         let imageMotor: String
         let icon: String
         let title: String
@@ -149,7 +149,7 @@ import SwiftUI
 
 struct ContentView_Preview : PreviewProvider {
     static var previews: some View {
-        CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.").frame(width: 50,height: 50)
+        CardMotor(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.").frame(width: 50,height: 50)
     }
 }
 
