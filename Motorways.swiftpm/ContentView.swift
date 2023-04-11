@@ -68,13 +68,7 @@ struct ContentView: View {
                     print(answer.Answers[0...2])
                 }) {
                     Text("Confirm")
-                        .bold()
-                        .padding(.horizontal, 90)
-                        .padding(.vertical, 25)
-                        .foregroundColor(Color.white)
-                        .background(Color("retroTerc"))
-                        .cornerRadius(10)
-                    
+                        .buttonStyle(CustomButtonStyle())
                 }
             }
             
@@ -168,7 +162,7 @@ struct ContentView: View {
                         .padding()
                     
                     Text (conversation)
-                        .font(CustomFontStyle.headline.font)
+                        .font(CustomFontStyle.headlineBold.font)
                         .multilineTextAlignment(.leading)
                         .lineLimit(2)
                         .truncationMode(.tail)
@@ -190,13 +184,13 @@ struct ContentView: View {
             
             Text (firstWords)
                 .foregroundColor(.black)
-                .font(CustomFontStyle.largeTitle.font)
+                .font(CustomFontStyle.title2.font)
             + Text(boldWord).bold()
                 .foregroundColor(.black)
-                .font(CustomFontStyle.largeTitle.font)
+                .font(CustomFontStyle.title2Bold.font)
             + Text(lastwords)
                 .foregroundColor(.black)
-                .font(CustomFontStyle.largeTitle.font)
+                .font(CustomFontStyle.title2.font)
 
             
         }

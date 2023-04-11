@@ -24,7 +24,7 @@ struct OverlayView: View {
             
             VStack {
                 Text(cardInformation)
-                    .font(.custom("Urbanist-VariableFont_wght", size: 24))
+                    .font(CustomFontStyle.bodyBold.font)
                     .foregroundColor(.white)
                     .padding(.vertical,80)
                     .padding(.horizontal,20)
@@ -34,6 +34,17 @@ struct OverlayView: View {
             .padding()
         }
         .ignoresSafeArea()
+    }
+}
+
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        return configuration.label
+            .padding()
+            .background(Color.green)
+            .foregroundColor(Color.white)
+            .opacity(configuration.isPressed ? 0.7 : 1)
+            .scaleEffect(configuration.isPressed ? 0.8 : 1)
     }
 }
 

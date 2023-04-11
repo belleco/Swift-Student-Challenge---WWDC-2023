@@ -15,6 +15,15 @@ struct MenuView: View {
         NavigationView{
             
             VStack{
+                
+                Button(action: {
+                    // Adicione sua ação aqui
+                    print(":")
+                }) {
+                    Text("Confirm")
+                        .buttonStyle(CustomButtonStyle())
+                }
+                
                 Image("Logo")
                     .resizable()
                     .aspectRatio( contentMode: .fit)
@@ -27,7 +36,7 @@ struct MenuView: View {
                     VStack{
                         
                         Text("Every electric bike has its profile, you need to help the next customer get the bike that best fits her profile")
-                            .font(.custom("Urbanist-VariableFont_wght", size: 24))
+                            .font(CustomFontStyle.title3.font)
                             .foregroundColor(Color("retroBlack"))
                             .multilineTextAlignment(.leading)
                             .padding(.vertical,50)

@@ -21,25 +21,20 @@ struct ClientView: View {
                 .padding()
             
             
-            Text("Eletric Motors")
+            Text("Belle Colares")
                 .font(CustomFontStyle.title1.font)
                 .padding(.bottom,50)
 
                         
             Text("They are powered by an electric motor powered by rechargeable batteries instead of fuel. They are a cleaner and quieter alternative than gasoline powered motorcycles, producing less pollution and are more energy efficient. \n\nElectric motorcycles look and perform like conventional motorcycles, but with a different power source, enabling people to move around in a more sustainable and cost-effective way.")
-                .font(CustomFontStyle.headline.font)
+                .font(CustomFontStyle.body.font)
                 .padding(.bottom,100)
             
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Close")
-                    .bold()
-                    .padding(.horizontal, 90)
-                    .padding(.vertical, 25)
-                    .foregroundColor(Color.white)
-                    .background(Color("retroTerc"))
-                    .cornerRadius(10)
+                    .buttonStyle(CustomButtonStyle())
             }.shadow(radius: 5)
             
         }.padding(40)

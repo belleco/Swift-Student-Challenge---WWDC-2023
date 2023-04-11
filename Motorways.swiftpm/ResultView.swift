@@ -71,12 +71,7 @@ struct ResultView: View {
                         print("apertou o botão")
                     }) {
                         Text(buttonstatement)
-                            .bold()
-                            .padding(.horizontal, 90)
-                           .padding(.vertical, 25)
-                            .foregroundColor(.white)
-                            .background(Color("retroTerc"))
-                            .cornerRadius(10)
+                            .buttonStyle(CustomButtonStyle())
                     }
                     
                 }

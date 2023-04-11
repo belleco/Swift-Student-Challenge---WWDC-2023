@@ -12,28 +12,62 @@ enum CustomFontStyle {
     case largeTitle
     case title1
     case title2
+    case title2Bold
     case title3
+    case title3Bold
     case headline
+    case headlineBold
     case body
+    case bodyBold
+
     
     var font: Font {
         switch self {
+            
         case .largeTitle:
-            return Font.custom("Urbanist-VariableFont_wght", size: 34)
-                .bold()
-                .italic()
+            return getFontBold(size: 40)
+
         case .title1:
-            return Font.custom("Urbanist-VariableFont_wght", size: 28)
-                .bold()
+            return getFontBold(size: 34)
+
         case .title2:
-            return Font.custom("Urbanist-VariableFont_wght", size: 22)
+            return getFontRegular(size: 32)
+            
+        case .title2Bold:
+            return getFontBold(size: 32)
+            
         case .title3:
-            return Font.custom("Urbanist-VariableFont_wght", size: 20)
+            return getFontRegular(size: 28)
+            
+        case .title3Bold:
+            return getFontBold(size: 28)
+            
         case .headline:
-            return Font.custom("Urbanist-VariableFont_wght", size: 17)
-                .italic()
+            return getFontRegular (size: 20)
+            
+        case .headlineBold:
+            return getFontBold (size: 20)
+
         case .body:
-            return Font.custom("Urbanist-VariableFont_wght", size: 16)
+            return getFontRegular(size: 17)
+            
+        case .bodyBold:
+            return getFontBold(size: 17)
         }
     }
+}
+
+func getFontRegular (size: CGFloat) -> Font {
+    let cfURL = Bundle.main.url(forResource: "Urbanist-Regular", withExtension: "ttf")! as CFURL
+    CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
+    let font = Font.custom("Urbanist-Regular", size: size)
+    
+    return font
+}
+func getFontBold (size: CGFloat) -> Font {
+    let cfURL = Bundle.main.url(forResource: "Urbanist-Bold", withExtension: "ttf")! as CFURL
+    CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
+    let font = Font.custom("Urbanist-Bold", size: size)
+    
+    return font
 }
