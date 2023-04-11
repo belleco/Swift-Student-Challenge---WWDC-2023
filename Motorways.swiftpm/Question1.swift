@@ -9,7 +9,7 @@ struct Question1: View {
     @State var showClient = false
     
     @State var viewNumber: Int = 0
-    var information: ListItem = naps[0][0]
+    var information: ListQuestionView = showQuestionView[0][0]
 
     var body: some View {
         
@@ -17,14 +17,14 @@ struct Question1: View {
         
         VStack{
             
-            ClientConversation(imageClient: naps[viewNumber][0].imageClient, conversation: "I don't want to run too fast, it has to be safe and take me places in the best possible way.")
+            ClientConversation(imageClient: showQuestionView[viewNumber][0].imageClient, conversation: "I don't want to run too fast, it has to be safe and take me places in the best possible way.")
             
             Spacer()
             
             CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants?")
             
             HStack {
-                CardMotorView(imageMotor: "photo",icon: "info.circle", title: naps[viewNumber][0].title, subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+                CardMotorView(imageMotor: "photo",icon: "info.circle", title: showQuestionView[viewNumber][0].title, subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Scooter"
