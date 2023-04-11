@@ -17,26 +17,26 @@ struct Question1: View {
         
         VStack{
             
-            ClientConversation(imageClient: showQuestionView[viewNumber][0].imageClient, conversation: "I don't want to run too fast, it has to be safe and take me places in the best possible way.")
+            ClientConversation(imageClient: showQuestionView[viewNumber][0].imageClient, conversation: showQuestionView[viewNumber][0].conversation)
             
             Spacer()
             
-            CardQuestion(firstWords: "Which of these has the ", boldWord: "speed", lastwords: " the customer wants?")
+            CardQuestion(firstWords: showQuestionView[viewNumber][0].firstWords, boldWord:showQuestionView[viewNumber][0].boldWord, lastwords: showQuestionView[viewNumber][0].lastWord)
             
             HStack {
-                CardMotor(imageMotor: "photo",icon: "info.circle", title: showQuestionView[viewNumber][0].title, subtitle: showQuestionView[viewNumber][0].subtitle,  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+                CardMotor(imageMotor: showQuestionView[viewNumber][0].imageMotor,icon: showQuestionView[viewNumber][0].icon, title: showQuestionView[viewNumber][0].title, subtitle: showQuestionView[viewNumber][0].subtitle, information: showQuestionView[viewNumber][0].information)
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Scooter"
                     }
                 
-                CardMotor(imageMotor: "photo",icon: "info.circle", title: showQuestionView[viewNumber][1].title, subtitle: showQuestionView[viewNumber][1].subtitle,  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+                CardMotor(imageMotor: showQuestionView[viewNumber][1].imageMotor,icon: showQuestionView[viewNumber][1].icon, title: showQuestionView[viewNumber][1].title, subtitle: showQuestionView[viewNumber][1].subtitle, information: showQuestionView[viewNumber][1].information)
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Chopper"
                     }
                 
-                CardMotor(imageMotor: "photo",icon: "info.circle", title: showQuestionView[viewNumber][2].title, subtitle: showQuestionView[viewNumber][2].subtitle,  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+                CardMotor(imageMotor: showQuestionView[viewNumber][2].imageMotor,icon: showQuestionView[viewNumber][2].icon, title: showQuestionView[viewNumber][2].title, subtitle: showQuestionView[viewNumber][2].subtitle, information: showQuestionView[viewNumber][2].information)
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         answer.Answers[0] = "Sport"
