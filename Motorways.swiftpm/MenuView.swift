@@ -27,7 +27,7 @@ struct MenuView: View {
                 HStack{
                     VStack{
                         
-                        Text("Every electric bike has its profile, you need to help the next customer get the bike that best fits her profile")
+                        Text("Every electric motorcycle has its profile, you need to help the next customer get the motorcycle that best fits her profile")
                             .font(CustomFontStyle.title3.font)
                             .foregroundColor(Color.Black)
                             .multilineTextAlignment(.leading)

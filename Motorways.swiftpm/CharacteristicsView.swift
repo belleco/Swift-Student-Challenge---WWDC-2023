@@ -13,6 +13,7 @@ struct CharacteristicsView: View {
     @State private var showPopoverMotor = false
     @State private var showPopoverBattery = false
     @State private var isPresentingSheet = false
+//    var story: ListItem = naps[0]
     
     
     var body: some View {
