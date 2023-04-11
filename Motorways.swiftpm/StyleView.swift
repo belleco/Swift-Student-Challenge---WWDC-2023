@@ -71,3 +71,29 @@ func getFontBold (size: CGFloat) -> Font {
     
     return font
 }
+
+extension Color {
+    
+    static let Primary = Color("retroPrimary")
+    static let Secondary = Color("retroSecondary")
+    static let Terc = Color("retroTerc")
+    static let Black = Color("retroBlack")
+    static let White = Color("retroWhite")
+    
+}
+
+
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        return configuration.label
+            .font(CustomFontStyle.bodyBold.font)
+            .padding(.horizontal,40)
+            .padding(.vertical,20)
+            .background(Color.Terc)
+            .foregroundColor(Color.white)
+            .opacity(configuration.isPressed ? 0.7 : 1)
+            .scaleEffect(configuration.isPressed ? 0.8 : 1)
+            .cornerRadius(10)
+    }
+}
+

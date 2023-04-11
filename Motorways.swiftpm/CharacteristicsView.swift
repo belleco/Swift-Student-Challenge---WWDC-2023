@@ -74,7 +74,7 @@ struct CharacteristicsView: View {
             
         }.padding(.vertical,100)
             .padding(.horizontal)
-            .background(Color("retroWhite")).ignoresSafeArea()
+            .background(Color.White).ignoresSafeArea()
     }
 }
 

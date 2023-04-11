@@ -53,18 +53,18 @@ struct Question2: View {
                     
                 } .frame(width: 500, height: 150)
                 
-                Button(action: {
-                    // Adicione sua ação aqui
-                    print(answer.Answers[0...2])
-                })
-                {
-                    Text("Confirm")
-                }.buttonStyle(CustomButtonStyle())
-                    .shadow(radius: 5)
+                Button(action: {}){
+                    NavigationLink (destination: Question3().environmentObject(answer))
+                    {
+                        Text("Confirm")
+                    }.buttonStyle(CustomButtonStyle())
+                        .shadow(radius: 5)
+                    
+                }
                 
             }
             
-        }.background(Color("retroWhite"))
+        }.background(Color.White)
     }
 }
 

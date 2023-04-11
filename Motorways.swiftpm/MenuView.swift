@@ -29,13 +29,13 @@ struct MenuView: View {
                         
                         Text("Every electric bike has its profile, you need to help the next customer get the bike that best fits her profile")
                             .font(CustomFontStyle.title3.font)
-                            .foregroundColor(Color("retroBlack"))
+                            .foregroundColor(Color.Black)
                             .multilineTextAlignment(.leading)
                             .padding(.vertical,50)
                             .padding(.horizontal,30)
                         
                         
-                    }.background(Color("retroPrimary").opacity(0.6))
+                    }.background(Color.Primary.opacity(0.6))
                         .cornerRadius(10)
                         .shadow(radius: 5)
                         .padding(50)
@@ -50,8 +50,8 @@ struct MenuView: View {
                                 .frame(width: 100.0, height: 100.0)
                                 .scaledToFit()
                                 .padding(50.0)
-                                .foregroundColor(Color("retroWhite"))
-                                .background(Color("retroTerc"))
+                                .foregroundColor(Color.White)
+                                .background(Color.Terc)
                                 .cornerRadius(800)
                         }
                     }.shadow(radius: 5)
@@ -59,7 +59,7 @@ struct MenuView: View {
                 }.padding(.horizontal,50)
                     .padding(.bottom,150)
                 
-            }.background(Color("retroWhite"))
+            }.background(Color.White)
             
         }.navigationViewStyle(.stack)
             .navigationBarHidden(true)

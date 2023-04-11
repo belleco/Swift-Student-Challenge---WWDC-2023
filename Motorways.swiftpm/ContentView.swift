@@ -31,7 +31,7 @@ import SwiftUI
                     
                     Text(title)
                         .font(CustomFontStyle.title3.font)
-                        .foregroundColor(Color("retroTerc"))
+                        .foregroundColor(Color.Terc)
                         .bold()
                     
                     Spacer()
@@ -79,7 +79,7 @@ import SwiftUI
         public var body: some View {
             ZStack{
                 Rectangle()
-                    .fill(Color("retroTerc").opacity(0.75)) // Cor sólida
+                    .fill(Color.Terc.opacity(0.75)) // Cor sólida
                     .cornerRadius(10)
                 
                 HStack{
@@ -149,7 +149,7 @@ import SwiftUI
 
 struct ContentView_Preview : PreviewProvider {
     static var previews: some View {
-        CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
+        CardMotorView(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.").frame(width: 50,height: 50)
     }
 }
 

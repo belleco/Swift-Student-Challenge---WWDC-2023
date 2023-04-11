@@ -36,18 +36,3 @@ struct OverlayView: View {
         .ignoresSafeArea()
     }
 }
-
-struct CustomButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        return configuration.label
-            .font(CustomFontStyle.bodyBold.font)
-            .padding(.horizontal,40)
-            .padding(.vertical,20)
-            .background(Color("retroTerc"))
-            .foregroundColor(Color.white)
-            .opacity(configuration.isPressed ? 0.7 : 1)
-            .scaleEffect(configuration.isPressed ? 0.8 : 1)
-            .cornerRadius(10)
-    }
-}
-
