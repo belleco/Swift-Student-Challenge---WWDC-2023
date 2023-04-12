@@ -95,9 +95,9 @@ struct CustomButtonStyle: ButtonStyle {
             .padding(.vertical,20)
             .background(Color.Terc)
             .foregroundColor(Color.white)
+            .cornerRadius(10)
             .opacity(configuration.isPressed ? 0.7 : 1)
             .scaleEffect(configuration.isPressed ? 0.8 : 1)
-            .cornerRadius(10)
     }
 }
 
