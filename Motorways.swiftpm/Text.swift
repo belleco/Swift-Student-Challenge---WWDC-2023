@@ -108,3 +108,21 @@ var showQuestionView: [[ListQuestionView]] = [
 
 
 
+struct ListResultView : Identifiable, Hashable {
+    var id = UUID()
+    var imageMotor: String
+    var motorName: String
+    var descriptionMotor1: String
+    var descriptionMotor2: String
+    var buttonstatement: String
+    
+}
+
+var showResultView: [ListResultView] = [
+
+    ListResultView(imageMotor: "motorcycle", motorName: "Chopper", descriptionMotor1: "“Each motorcycle has its singularities, pros and cons according to what you want at that moment as well as life's decisions, you need to know yourself enough to follow what fits best with your values... your profile, your self”", descriptionMotor2: "After a moment of decisions, this is the motorcycle that best suits the customer, now let's finalize the sale.", buttonstatement: "Sell the motorcicycle"),
+    
+    ListResultView(imageMotor: "motorcycle", motorName: "Scooter", descriptionMotor1: "“Each motorcycle has its singularities, pros and cons according to what you want at that moment as well as life's decisions, you need to know yourself enough to follow what fits best with your values... your profile, your self”", descriptionMotor2: "After a moment of decisions, this is the motorcycle that best suits the customer, now let's finalize the sale.", buttonstatement: "Sell the motorcicycle")
+
+]
+
