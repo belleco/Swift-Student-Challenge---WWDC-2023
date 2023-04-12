@@ -66,13 +66,13 @@ struct Question1: View {
                     if viewNumber > 1 {
                         NavigationLink(destination: ResultView(), label: {
                             Text("See the motorcycle")
-                        })
+                        }).buttonStyle(CustomButtonStyle())
                     }else{
                         Button(action: {
                             self.viewNumber += 1
                         }){
                           Text("Confirm selection")
-                        }
+                        }.buttonStyle(CustomButtonStyle())
                     }
                 }
                 

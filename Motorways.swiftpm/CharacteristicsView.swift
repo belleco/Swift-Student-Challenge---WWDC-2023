@@ -65,13 +65,17 @@ struct CharacteristicsView: View {
             Spacer()
             
             
-            Button(action: {}){
-                NavigationLink (destination: Question1()){
-                    Text("Meet next client")
-                
-                }
-            }.buttonStyle(CustomButtonStyle())
-            .shadow(radius: 5)
+            NavigationLink(destination: Question1(), label: {
+                Text("Meet next client")
+            }).buttonStyle(CustomButtonStyle())
+            
+//            Button(action: {}){
+//                NavigationLink (destination: Question1()){
+//                    Text("Meet next client")
+//
+//                }
+//            }.buttonStyle(CustomButtonStyle())
+//            .shadow(radius: 5)
             
         }.padding(.vertical,100)
             .padding(.horizontal)

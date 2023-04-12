@@ -43,18 +43,21 @@ struct MenuView: View {
                     
                     Spacer()
                     
-                    Button(action: {}){
-                        NavigationLink (destination: CharacteristicsView()) {
-                            Image(systemName: "play.fill")
-                                .resizable()
-                                .frame(width: 100.0, height: 100.0)
-                                .scaledToFit()
-                                .padding(50.0)
-                                .foregroundColor(Color.White)
-                                .background(Color.Terc)
-                                .cornerRadius(800)
-                        }
-                    }.shadow(radius: 5)
+                    
+                    NavigationLink(destination: CharacteristicsView(), label: {
+                        Image(systemName: "play.fill")
+                            .resizable()
+                            .frame(width: 100.0, height: 100.0)
+                            .scaledToFit()
+                            .padding(50)
+                            .padding(.vertical,20)
+                            .foregroundColor(Color.White)
+                            .background(Color.Terc)
+                    })
+                    .cornerRadius(500)
+                    .shadow(radius: 5)
+                    .buttonStyle(CustomButtonStyle())
+                    
                     
                 }.padding(.horizontal,50)
                     .padding(.bottom,150)
