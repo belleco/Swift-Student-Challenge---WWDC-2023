@@ -66,13 +66,18 @@ struct ResultView: View {
                 
                     Spacer()
 
-                    Button(action: {
-                        // Adicione sua ação aqui
-                        print("apertou o botão")
-                    }) {
-                        Text(buttonstatement)
-                    }.buttonStyle(CustomButtonStyle())
-                        .shadow(radius: 5)
+                    NavigationLink(destination: MenuView(), label: {
+                        Text("Meet next client")
+                    }).buttonStyle(CustomButtonStyle())
+                    
+                    
+//                    Button(action: {
+//                        // Adicione sua ação aqui
+//                        print("apertou o botão")
+//                    }) {
+//                        Text(buttonstatement)
+//                    }.buttonStyle(CustomButtonStyle())
+//                        .shadow(radius: 5)
                     
                 }
                 

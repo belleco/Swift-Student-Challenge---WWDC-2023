@@ -5,7 +5,10 @@ struct MyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MenuView()
+            NavigationView{
+                MenuView()
+            }.navigationViewStyle(.stack)
+                .navigationBarHidden(true)
         }
     }
 }

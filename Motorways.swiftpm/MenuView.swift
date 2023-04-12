@@ -12,7 +12,7 @@ import SwiftUI
 struct MenuView: View {
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
             
             VStack{
                 
@@ -63,9 +63,9 @@ struct MenuView: View {
                     .padding(.bottom,150)
                 
             }.background(Color.White)
-            
-        }.navigationViewStyle(.stack)
-            .navigationBarHidden(true)
+//            
+//        }.navigationViewStyle(.stack)
+//            .navigationBarHidden(true)
     }
 }
 
