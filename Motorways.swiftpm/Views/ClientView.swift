@@ -22,18 +22,18 @@ struct ClientView: View {
             
             
             Text("New Client")
-                .font(CustomFontStyle.title1.font)
+                .font(CustomFontStyle.title2Bold.font)
                 .padding(.bottom,50)
 
                         
             Text("Problem Statement")
-                .font(CustomFontStyle.title3.font)
+                .font(CustomFontStyle.headline.font)
                 .padding(.bottom,100)
             
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }) {
-                Text("Close")
+                Text("Show motorcycles")
                     
             }.buttonStyle(CustomButtonStyle())
             .shadow(radius: 5)

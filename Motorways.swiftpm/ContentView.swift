@@ -30,7 +30,7 @@ import SwiftUI
 
                     Text(title)
                         .font(CustomFontStyle.title3.font)
-                        .foregroundColor(Color.Terc)
+                        .foregroundColor(Color.Black)
                         .bold()
 
                     Spacer()
@@ -80,26 +80,26 @@ public struct ClientConversation: View {
     public var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color.Terc.opacity(0.75)) // Cor sólida
+                .fill(Color.Primary) // Cor sólida
                 .cornerRadius(10)
             
             HStack{
                 Image(systemName: imageClient)
                     .resizable()
-                    .frame(width: 80, height: 80)
+                    .frame(width: 60, height: 60)
                     .foregroundColor(.white)
                     .padding()
                 
                 Text (conversation)
-                    .font(CustomFontStyle.headlineBold.font)
+                    .font(CustomFontStyle.headline.font)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
-                    .truncationMode(.tail)
-                    .foregroundColor(.white)
+//                    .truncationMode(.tail)
+                    .foregroundColor(Color.Black)
                     .padding()
                 
             } .padding()
-        } .frame(width: 1100, height: 130)
+        } .frame(width: 1100, height: 50)
     }
 }
     

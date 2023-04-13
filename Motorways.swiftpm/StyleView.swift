@@ -31,31 +31,31 @@ enum CustomFontStyle {
             return Font.getFontBold(size: 40)
 
         case .title1:
-            return Font.getFontBold(size: 34)
+            return Font.getFontBold(size: 38)
 
         case .title2:
-            return Font.getFontRegular(size: 32)
+            return Font.getFontRegular(size: 34)
             
         case .title2Bold:
-            return Font.getFontBold(size: 32)
+            return Font.getFontBold(size: 34)
             
         case .title3:
-            return Font.getFontRegular(size: 28)
+            return Font.getFontRegular(size: 32)
             
         case .title3Bold:
-            return Font.getFontBold(size: 28)
+            return Font.getFontBold(size: 32)
             
         case .headline:
-            return Font.getFontRegular (size: 20)
+            return Font.getFontRegular (size: 24)
             
         case .headlineBold:
-            return Font.getFontBold (size: 20)
+            return Font.getFontBold (size: 24)
 
         case .body:
-            return Font.getFontRegular(size: 17)
+            return Font.getFontRegular(size: 20)
             
         case .bodyBold:
-            return Font.getFontBold(size: 17)
+            return Font.getFontBold(size: 20)
         }
     }
 }

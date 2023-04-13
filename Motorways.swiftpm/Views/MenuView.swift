@@ -37,8 +37,8 @@ struct MenuView: View {
                         
                     }.background(Color.Primary.opacity(0.6))
                         .cornerRadius(10)
-                        .shadow(radius: 5)
-                        .padding(50)
+                        .shadow(radius: 3)
+                        .padding(60)
                     
                     
                     Spacer()
@@ -47,9 +47,9 @@ struct MenuView: View {
                     NavigationLink(destination: CharacteristicsView(), label: {
                         Image(systemName: "play.fill")
                             .resizable()
-                            .frame(width: 100.0, height: 100.0)
+                            .frame(width: 60, height: 60)
                             .scaledToFit()
-                            .padding(50)
+                            .padding(30)
                             .padding(.vertical,20)
                             .foregroundColor(Color.White)
                             .background(Color.Terc)

@@ -50,14 +50,14 @@ struct CharacteristicsView: View {
                         .frame(width: 300)
                 }
                 
-            }  .popover(isPresented: $showPopoverMotor, attachmentAnchor: .rect(.rect(.init(x: 50, y: 50, width: 0, height: 0))), arrowEdge: .bottom, content: {
+            }  .popover(isPresented: $showPopoverMotor, attachmentAnchor: .rect(.rect(.init(x: 50, y: 50, width: 0, height: 0))), content: {
                 EletricMotorInfoView()
-                    .frame(width: 400, height: 400) // Definindo o tamanho da View
+                    .frame(width: 400, height: 450) // Definindo o tamanho da View
             })
             
-            .popover(isPresented: $showPopoverBattery, content: {
+            .popover(isPresented: $showPopoverBattery, attachmentAnchor: .rect(.rect(.init(x: 600, y: 50, width: 0, height: 0))), content: {
                 BatteryInfoView()
-                    .frame(width: 400, height: 400) // Definindo o tamanho da View
+                    .frame(width: 400, height: 450) // Definindo o tamanho da View
             })
             
             .padding(.horizontal,150)
@@ -68,14 +68,6 @@ struct CharacteristicsView: View {
             NavigationLink(destination: Question1(), label: {
                 Text("Meet next client")
             }).buttonStyle(CustomButtonStyle())
-            
-//            Button(action: {}){
-//                NavigationLink (destination: Question1()){
-//                    Text("Meet next client")
-//
-//                }
-//            }.buttonStyle(CustomButtonStyle())
-//            .shadow(radius: 5)
             
         }.padding(.vertical,100)
             .padding(.horizontal)
