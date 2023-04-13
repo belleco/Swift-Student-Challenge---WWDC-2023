@@ -63,7 +63,7 @@ struct Question1: View {
             
             Spacer()
             
-            HStack (spacing: 300){
+            HStack (spacing: 500){
                 
                 HStack {
                     
@@ -78,7 +78,7 @@ struct Question1: View {
                     MiniCard()
                     
                     
-                } .frame(width: 500, height: 150)
+                } .frame(width: 300, height: 100)
                 
                 ZStack{
                     if viewNumber > 1 {

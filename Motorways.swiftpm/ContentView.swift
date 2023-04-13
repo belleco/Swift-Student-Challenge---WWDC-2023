@@ -21,11 +21,10 @@ import SwiftUI
 
         public var body: some View {
             VStack {
-                Image(systemName: imageMotor)
+                Image(imageMotor)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 200)
-                    .padding(.vertical)
+                    .frame(width: 300)
 
                 HStack{
 
@@ -45,19 +44,19 @@ import SwiftUI
                             showingInfo = true
                         }
 
-                }.padding()
+                }.padding(10)
 
                 Text(subtitle)
                     .font(CustomFontStyle.headline.font)
                     .bold()
                     .foregroundColor(.secondary)
-                    .padding(.vertical,15)
 
             }
+            .padding(20)
             .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5)
-            .padding()
+            .cornerRadius(5)
+            .shadow(radius: 3)
+            .padding(10)
             .overlay(
 
                 Group {

@@ -54,7 +54,7 @@ struct Question2: View {
                 } .frame(width: 500, height: 150)
                 
                 Button(action: {}){
-                    NavigationLink (destination: Question3().environmentObject(answer))
+                    NavigationLink (destination: Question1().environmentObject(answer))
                     {
                         Text("Confirm")
                     }.buttonStyle(CustomButtonStyle())
