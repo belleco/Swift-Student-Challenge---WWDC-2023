@@ -18,19 +18,19 @@ struct Question2: View {
                 CardMotor(imageMotor: "photo",icon: "info.circle", title: "Scooter", subtitle: "Slow",  information: "It has a maximum speed of around 50 km/h and its autonomy range can vary from 50 km to 120 km, depending on the model and conditions of use.")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
-                        answer.Answers[1] = "Scooter"
+                        answer.Answers[1] = 1
                     }
                 
                 CardMotor(imageMotor: "photo",icon: "info.circle", title: "Chopper", subtitle: "Medium",  information: "Information for Card 2")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
-                        answer.Answers[1] = "Chopper"
+                        answer.Answers[1] = 2
                     }
                 
                 CardMotor(imageMotor: "photo",icon: "info.circle", title: "Sport", subtitle: "Fast", information: "Information for Card 3")
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
-                        answer.Answers[1] = "Sport"
+                        answer.Answers[1] = 3
                     }
             } .padding(.horizontal,80)
             

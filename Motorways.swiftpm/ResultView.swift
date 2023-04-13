@@ -12,20 +12,20 @@ struct ResultView: View {
     
     @StateObject var answer = Answers()
     
-//    @State var viewNumber: Int = 0
     var information: ListResultView = showResultView[0]
-
+    
     
     var body: some View {
         
         HStack{
-                        
-            MotorInfoResult(imageMotor: showResultView[0].imageMotor, motorName: showResultView[0].motorName, descriptionMotor1:showResultView[0].descriptionMotor1, descriptionMotor2: showResultView[0].descriptionMotor2, buttonstatement: showResultView[0].buttonstatement)
-//
-//            MotorInfoResult(imageMotor: showResultView[1].imageMotor, motorName: showResultView[1].motorName, descriptionMotor1:showResultView[1].descriptionMotor1, descriptionMotor2: showResultView[1].descriptionMotor2, buttonstatement: showResultView[1].buttonstatement)
-//
-//            MotorInfoResult(imageMotor: showResultView[2].imageMotor, motorName: showResultView[2].motorName, descriptionMotor1:showResultView[2].descriptionMotor1, descriptionMotor2: showResultView[2].descriptionMotor2, buttonstatement: showResultView[2].buttonstatement)
             
+            if answer.Answers[0] == 1{
+                MotorInfoResult(imageMotor: showResultView[0].imageMotor, motorName: showResultView[0].motorName, descriptionMotor1:showResultView[0].descriptionMotor1, descriptionMotor2: showResultView[0].descriptionMotor2, buttonstatement: showResultView[0].buttonstatement)
+            }else if answer.Answers[0] == 2{
+                MotorInfoResult(imageMotor: showResultView[1].imageMotor, motorName: showResultView[1].motorName, descriptionMotor1:showResultView[1].descriptionMotor1, descriptionMotor2: showResultView[1].descriptionMotor2, buttonstatement: showResultView[1].buttonstatement)
+            }else {
+                MotorInfoResult(imageMotor: showResultView[2].imageMotor, motorName: showResultView[2].motorName, descriptionMotor1:showResultView[2].descriptionMotor1, descriptionMotor2: showResultView[2].descriptionMotor2, buttonstatement: showResultView[2].buttonstatement)
+            }
         }.background(Color.White)
     }
     
@@ -70,24 +70,24 @@ struct ResultView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
                         .multilineTextAlignment(.leading)
-                
+                    
                     Spacer()
                     
                     
-        
-
+                    
+                    
                     NavigationLink(destination: MenuView(), label: {
                         Text(buttonstatement)
                     }).buttonStyle(CustomButtonStyle())
                     
                     
-//                    Button(action: {
-//                        // Adicione sua ação aqui
-//                        print("apertou o botão")
-//                    }) {
-//                        Text(buttonstatement)
-//                    }.buttonStyle(CustomButtonStyle())
-//                        .shadow(radius: 5)
+                    //                    Button(action: {
+                    //                        // Adicione sua ação aqui
+                    //                        print("apertou o botão")
+                    //                    }) {
+                    //                        Text(buttonstatement)
+                    //                    }.buttonStyle(CustomButtonStyle())
+                    //                        .shadow(radius: 5)
                     
                 }
                 
@@ -96,9 +96,9 @@ struct ResultView: View {
         }
     }
 }
-    
-    struct ResultView_Preview : PreviewProvider {
-        static var previews: some View {
-            ResultView()
-        }
+
+struct ResultView_Preview : PreviewProvider {
+    static var previews: some View {
+        ResultView()
     }
+}

@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 class Answers : ObservableObject {
-    @Published var  Answers : [String] = ["", "", ""]
+    @Published var  Answers : [Int] = [0,0,0]
+    //1 - Scooter, 2 - Chopper, 3 - Sport
 }
 
 
@@ -20,7 +21,6 @@ struct OverlayView: View {
         ZStack {
             Color.black.opacity(0.95)
                 .cornerRadius(10)
-
             
             VStack {
                 Text(cardInformation)

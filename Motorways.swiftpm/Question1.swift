@@ -27,19 +27,19 @@ struct Question1: View {
                 CardMotor(imageMotor: showQuestionView[viewNumber][0].imageMotor,icon: showQuestionView[viewNumber][0].icon, title: showQuestionView[viewNumber][0].title, subtitle: showQuestionView[viewNumber][0].subtitle, information: showQuestionView[viewNumber][0].information)
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
-                        answer.Answers[0] = "Scooter"
+                        answer.Answers[0] = 1
                     }
                 
                 CardMotor(imageMotor: showQuestionView[viewNumber][1].imageMotor,icon: showQuestionView[viewNumber][1].icon, title: showQuestionView[viewNumber][1].title, subtitle: showQuestionView[viewNumber][1].subtitle, information: showQuestionView[viewNumber][1].information)
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
-                        answer.Answers[0] = "Chopper"
+                        answer.Answers[0] = 2
                     }
                 
                 CardMotor(imageMotor: showQuestionView[viewNumber][2].imageMotor,icon: showQuestionView[viewNumber][2].icon, title: showQuestionView[viewNumber][2].title, subtitle: showQuestionView[viewNumber][2].subtitle, information: showQuestionView[viewNumber][2].information)
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
-                        answer.Answers[0] = "Sport"
+                        answer.Answers[0] = 3
                     }
             } .padding(.horizontal,80)
             
