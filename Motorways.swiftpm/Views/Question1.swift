@@ -61,7 +61,6 @@ struct Question1: View {
                     }.scaleEffect(tapped3Card ? 1.05 : 1)
             } .padding(.horizontal,80)
             
-            Spacer()
             
             HStack (spacing: 500){
                 
@@ -78,7 +77,7 @@ struct Question1: View {
                     MiniCard()
                     
                     
-                } .frame(width: 300, height: 100)
+                } .frame(width: 300, height: 120)
                 
                 ZStack{
                     if viewNumber > 1 {

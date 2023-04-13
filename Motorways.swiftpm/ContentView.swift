@@ -125,18 +125,24 @@ public struct CardQuestion: View {
 
     
 public struct MiniCard: View {
-    @State var imageMotor = "person.crop.artframe" // nome da imagem padrão
+    @State var MiniScooter = "Scooter"
+    @State var MiniChopper = "Chopper"
+    @State var MiniSport = "Sport"
+
+    
+    
+    // nome da imagem padrão
     public var body: some View {
         VStack {
-            Image(systemName: imageMotor) // exibe a imagem com o nome atual
+            Image(MiniScooter) // exibe a imagem com o nome atual
                 .resizable()
                 .scaledToFit()
                 .padding()
                 .onTapGesture { // ação a ser realizada quando a imagem for clicada
-                    if imageMotor == "person.crop.artframe" {
-                        imageMotor = "iphone.smartbatterycase.gen2" // muda o nome da imagem para a segunda imagem
+                    if MiniScooter == "Scooter" {
+                        MiniScooter = "Chopper" // muda o nome da imagem para a segunda imagem
                     } else {
-                        imageMotor = "person.crop.artframe" // muda o nome da imagem para a primeira imagem
+                        MiniScooter = "Scooter" // muda o nome da imagem para a primeira imagem
                     }
                 }
         }
