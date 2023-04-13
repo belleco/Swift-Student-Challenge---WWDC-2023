@@ -12,12 +12,19 @@ struct ResultView: View {
     
     @StateObject var answer = Answers()
     
+//    @State var viewNumber: Int = 0
+    var information: ListResultView = showResultView[0]
+
+    
     var body: some View {
         
         HStack{
                         
-            MotorInfoResult(imageMotor: "motorcycle", motorName: "Chopper", descriptionMotor1: "“Each motorcycle has its singularities, pros and cons according to what you want at that moment as well as life's decisions, you need to know yourself enough to follow what fits best with your values... your profile, your self”", descriptionMotor2: "After a moment of decisions, this is the motorcycle that best suits the customer, now let's finalize the sale.", buttonstatement: "Sell the motorcicycle")
-            
+            MotorInfoResult(imageMotor: showResultView[0].imageMotor, motorName: showResultView[0].motorName, descriptionMotor1:showResultView[0].descriptionMotor1, descriptionMotor2: showResultView[0].descriptionMotor2, buttonstatement: showResultView[0].buttonstatement)
+//
+//            MotorInfoResult(imageMotor: showResultView[1].imageMotor, motorName: showResultView[1].motorName, descriptionMotor1:showResultView[1].descriptionMotor1, descriptionMotor2: showResultView[1].descriptionMotor2, buttonstatement: showResultView[1].buttonstatement)
+//
+//            MotorInfoResult(imageMotor: showResultView[2].imageMotor, motorName: showResultView[2].motorName, descriptionMotor1:showResultView[2].descriptionMotor1, descriptionMotor2: showResultView[2].descriptionMotor2, buttonstatement: showResultView[2].buttonstatement)
             
         }.background(Color.White)
     }
@@ -65,9 +72,12 @@ struct ResultView: View {
                         .multilineTextAlignment(.leading)
                 
                     Spacer()
+                    
+                    
+        
 
                     NavigationLink(destination: MenuView(), label: {
-                        Text("Meet next client")
+                        Text(buttonstatement)
                     }).buttonStyle(CustomButtonStyle())
                     
                     

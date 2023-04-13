@@ -28,51 +28,54 @@ enum CustomFontStyle {
         switch self {
             
         case .largeTitle:
-            return getFontBold(size: 40)
+            return Font.getFontBold(size: 40)
 
         case .title1:
-            return getFontBold(size: 34)
+            return Font.getFontBold(size: 34)
 
         case .title2:
-            return getFontRegular(size: 32)
+            return Font.getFontRegular(size: 32)
             
         case .title2Bold:
-            return getFontBold(size: 32)
+            return Font.getFontBold(size: 32)
             
         case .title3:
-            return getFontRegular(size: 28)
+            return Font.getFontRegular(size: 28)
             
         case .title3Bold:
-            return getFontBold(size: 28)
+            return Font.getFontBold(size: 28)
             
         case .headline:
-            return getFontRegular (size: 20)
+            return Font.getFontRegular (size: 20)
             
         case .headlineBold:
-            return getFontBold (size: 20)
+            return Font.getFontBold (size: 20)
 
         case .body:
-            return getFontRegular(size: 17)
+            return Font.getFontRegular(size: 17)
             
         case .bodyBold:
-            return getFontBold(size: 17)
+            return Font.getFontBold(size: 17)
         }
     }
 }
 
-func getFontRegular (size: CGFloat) -> Font {
-    let cfURL = Bundle.main.url(forResource: "Urbanist-Regular", withExtension: "ttf")! as CFURL
-    CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-    let font = Font.custom("Urbanist-Regular", size: size)
+extension Font {
     
-    return font
-}
-func getFontBold (size: CGFloat) -> Font {
-    let cfURL = Bundle.main.url(forResource: "Urbanist-Bold", withExtension: "ttf")! as CFURL
-    CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-    let font = Font.custom("Urbanist-Bold", size: size)
-    
-    return font
+    static func getFontRegular (size: CGFloat) -> Font {
+        let cfURL = Bundle.main.url(forResource: "Urbanist-Regular", withExtension: "ttf")! as CFURL
+        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
+        let font = Font.custom("Urbanist-Regular", size: size)
+        
+        return font
+    }
+   static func getFontBold (size: CGFloat) -> Font {
+        let cfURL = Bundle.main.url(forResource: "Urbanist-Bold", withExtension: "ttf")! as CFURL
+        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
+        let font = Font.custom("Urbanist-Bold", size: size)
+        
+        return font
+    }
 }
 
 // color pallete
@@ -85,6 +88,10 @@ extension Color {
     static let White = Color("retroWhite")
     
 }
+    
+    
+    
+    
 
 // custom button style
 struct CustomButtonStyle: ButtonStyle {
