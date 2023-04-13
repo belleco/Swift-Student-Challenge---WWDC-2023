@@ -30,7 +30,7 @@ struct Question1: View {
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         tapped1Card.toggle()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             tapped1Card.toggle()
                         }
                         answer.Answers[viewNumber] = 1
@@ -41,7 +41,7 @@ struct Question1: View {
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         tapped2Card.toggle()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             tapped2Card.toggle()
                         }
                         answer.Answers[viewNumber] = 2
@@ -53,7 +53,7 @@ struct Question1: View {
                     .onTapGesture {
                         // Ação a ser executada quando o card for clicado
                         tapped3Card.toggle()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             tapped3Card.toggle()
                         }
                         answer.Answers[viewNumber] = 3

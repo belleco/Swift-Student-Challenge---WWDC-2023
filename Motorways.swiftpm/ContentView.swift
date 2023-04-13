@@ -38,7 +38,7 @@ import SwiftUI
                     Image(systemName: icon)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 30, height: 30)
                         .onTapGesture {
                             overlayText = information
                             showingInfo = true
