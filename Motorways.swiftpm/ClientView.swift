@@ -21,13 +21,13 @@ struct ClientView: View {
                 .padding()
             
             
-            Text("Belle Colares")
+            Text("New Client")
                 .font(CustomFontStyle.title1.font)
                 .padding(.bottom,50)
 
                         
-            Text("They are powered by an electric motor powered by rechargeable batteries instead of fuel. They are a cleaner and quieter alternative than gasoline powered motorcycles, producing less pollution and are more energy efficient. \n\nElectric motorcycles look and perform like conventional motorcycles, but with a different power source, enabling people to move around in a more sustainable and cost-effective way.")
-                .font(CustomFontStyle.body.font)
+            Text("Problem Statement")
+                .font(CustomFontStyle.title3.font)
                 .padding(.bottom,100)
             
             Button(action: {

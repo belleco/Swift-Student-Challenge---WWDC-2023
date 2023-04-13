@@ -10,19 +10,38 @@ import SwiftUI
 
 struct ResultView: View {
     
-    @StateObject var answer = Answers()
+    @EnvironmentObject var answer : Answers
     
     var information: ListResultView = showResultView[0]
     
+    var mostCommonAnswer: Int? {
+        let counts = answer.Answers.reduce(into: [:]) { counts, answer in
+            counts[answer, default: 0] += 1
+        }
+        
+        let maxCount = counts.values.max()
+        
+        if maxCount == 1 {
+            return 3
+        }
+        
+        let mostCommon = counts.filter{$0.value ==  maxCount}.map {$0.key}
+        return mostCommon[0]
+    }
     
     var body: some View {
         
         HStack{
             
-            if answer.Answers[0] == 1{
+            // Scooter
+            if mostCommonAnswer == 1 {
                 MotorInfoResult(imageMotor: showResultView[0].imageMotor, motorName: showResultView[0].motorName, descriptionMotor1:showResultView[0].descriptionMotor1, descriptionMotor2: showResultView[0].descriptionMotor2, buttonstatement: showResultView[0].buttonstatement)
-            }else if answer.Answers[0] == 2{
+                
+            // Chopper
+            }else if mostCommonAnswer == 2 {
                 MotorInfoResult(imageMotor: showResultView[1].imageMotor, motorName: showResultView[1].motorName, descriptionMotor1:showResultView[1].descriptionMotor1, descriptionMotor2: showResultView[1].descriptionMotor2, buttonstatement: showResultView[1].buttonstatement)
+                
+                // Sport and others
             }else {
                 MotorInfoResult(imageMotor: showResultView[2].imageMotor, motorName: showResultView[2].motorName, descriptionMotor1:showResultView[2].descriptionMotor1, descriptionMotor2: showResultView[2].descriptionMotor2, buttonstatement: showResultView[2].buttonstatement)
             }
