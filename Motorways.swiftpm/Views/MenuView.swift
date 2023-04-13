@@ -35,9 +35,9 @@ struct MenuView: View {
                             .padding(.horizontal,30)
                         
                         
-                    }.background(Color.Primary.opacity(0.6))
+                    }.background(Color.Primary)
                         .cornerRadius(10)
-                        .shadow(radius: 3)
+                        .shadow(radius: 5)
                         .padding(60)
                     
                     
