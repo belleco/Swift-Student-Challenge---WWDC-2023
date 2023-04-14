@@ -11,6 +11,8 @@ import SwiftUI
 struct ResultView: View {
     
     @EnvironmentObject var answer : Answers
+    @Environment(\.dismiss) var dismiss
+
     
     var information: ListResultView = showResultView[0]
     
@@ -37,7 +39,7 @@ struct ResultView: View {
             if mostCommonAnswer == 1 {
                 MotorInfoResult(imageMotor: showResultView[0].imageMotor, motorName: showResultView[0].motorName, descriptionMotor1:showResultView[0].descriptionMotor1, descriptionMotor2: showResultView[0].descriptionMotor2, buttonstatement: showResultView[0].buttonstatement)
                 
-            // Chopper
+                // Chopper
             }else if mostCommonAnswer == 2 {
                 MotorInfoResult(imageMotor: showResultView[1].imageMotor, motorName: showResultView[1].motorName, descriptionMotor1:showResultView[1].descriptionMotor1, descriptionMotor2: showResultView[1].descriptionMotor2, buttonstatement: showResultView[1].buttonstatement)
                 
@@ -45,6 +47,20 @@ struct ResultView: View {
             }else {
                 MotorInfoResult(imageMotor: showResultView[2].imageMotor, motorName: showResultView[2].motorName, descriptionMotor1:showResultView[2].descriptionMotor1, descriptionMotor2: showResultView[2].descriptionMotor2, buttonstatement: showResultView[2].buttonstatement)
             }
+            
+            //ESSE DÁ DISMISS
+            Button(action: {
+                dismiss()
+                
+                
+            }) {
+                Text("ESSE DÁ BACK")
+                
+            }.buttonStyle(CustomButtonStyle())
+                .shadow(radius: 5)
+            
+            
+            
         }.background(Color.White)
     }
     
@@ -92,21 +108,9 @@ struct ResultView: View {
                     
                     Spacer()
                     
-                    
-                    
-                    
-                    NavigationLink(destination: MenuView(), label: {
+                    NavigationLink(destination: FinalView(), label: {
                         Text(buttonstatement)
                     }).buttonStyle(CustomButtonStyle())
-                    
-                    
-                    //                    Button(action: {
-                    //                        // Adicione sua ação aqui
-                    //                        print("apertou o botão")
-                    //                    }) {
-                    //                        Text(buttonstatement)
-                    //                    }.buttonStyle(CustomButtonStyle())
-                    //                        .shadow(radius: 5)
                     
                 }
                 

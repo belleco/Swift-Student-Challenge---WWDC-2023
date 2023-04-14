@@ -39,6 +39,7 @@ import SwiftUI
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
+                        .foregroundColor(Color.Terc)
                         .onTapGesture {
                             overlayText = information
                             showingInfo = true
@@ -76,6 +77,7 @@ import SwiftUI
 public struct ClientConversation: View {
     let imageClient: String
     let conversation: String
+    
     
     public var body: some View {
         ZStack{
@@ -128,6 +130,8 @@ public struct MiniCard: View {
     @State var MiniScooter = "Scooter"
     @State var MiniChopper = "Chopper"
     @State var MiniSport = "Sport"
+
+    @StateObject  var answer = Answers()
 
     
     
